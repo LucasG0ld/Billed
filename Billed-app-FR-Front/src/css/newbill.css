@@ -37,6 +37,10 @@ label {
   color: #fff;
 }
 
+.dp-none {
+  display: none;
+}
+
 #btn-send-bill {
   width: 100px;
   background-color: #0E5AE5;

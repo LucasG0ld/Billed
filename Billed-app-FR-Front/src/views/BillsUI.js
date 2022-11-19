@@ -20,7 +20,7 @@ const row = (bill) => {
   }
 
 const rows = (data) => {
-  return (data && data.length) ? data.map(bill => row(bill)).join("") : ""
+  return (data && data.length) ? data.sort((a,b) => new Date(b.date) - new Date(a.date)).map(bill => row(bill)).join("") : ""
 }
 
 export default ({ data: bills, loading, error }) => {
@@ -54,7 +54,7 @@ export default ({ data: bills, loading, error }) => {
       <div class='content'>
         <div class='content-header'>
           <div class='content-title'> Mes notes de frais </div>
-          <button type="button" data-testid='btn-new-bill' class="btn btn-primary">Nouvelle note de frais</button>
+          <button type="button" data-testid="btn-new-bill" class="btn btn-primary">Nouvelle note de frais</button>
         </div>
         <div id="data-table">
         <table id="example" class="table table-striped" style="width:100%">

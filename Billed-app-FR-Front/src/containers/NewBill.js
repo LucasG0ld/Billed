@@ -18,6 +18,8 @@ export default class NewBill {
   handleChangeFile = e => {
     e.preventDefault()
     const file = this.document.querySelector(`input[data-testid="file"]`).files[0]
+    const fileValue = this.document.querySelector(`input[data-testid="file"]`).value
+    const fileRegex = /\.(jpe?g|png)$/i.test(fileValue)
     const filePath = e.target.value.split(/\\/g)
     const fileName = filePath[filePath.length-1]
     const formData = new FormData()
@@ -25,6 +27,9 @@ export default class NewBill {
     formData.append('file', file)
     formData.append('email', email)
 
+    let errorParagraph = this.document.getElementById('error-msg')
+    if(fileRegex) {
+      errorParagraph.classList.add("dp-none");
     this.store
       .bills()
       .create({
@@ -39,7 +44,15 @@ export default class NewBill {
         this.fileUrl = fileUrl
         this.fileName = fileName
       }).catch(error => console.error(error))
+  } else {
+    this.document.querySelector(`input[data-testid="file"]`).value = ''
+    console.log(errorParagraph)
+    //let errorMsg = `<p style="color: #e21313;">Veuillez changer le format de la photo.<br>Les formats pris en compte sont : JPG, JPEG, PNG</p>`
+    //errorParagraph.innerHTML += errorMsg;
+    errorParagraph.classList.remove("dp-none")
   }
+  }
+  
   handleSubmit = e => {
     e.preventDefault()
     console.log('e.target.querySelector(`input[data-testid="datepicker"]`).value', e.target.querySelector(`input[data-testid="datepicker"]`).value)

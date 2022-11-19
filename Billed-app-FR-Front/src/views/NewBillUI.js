@@ -15,7 +15,7 @@ export default () => {
                 <div class="col-md-6">
                   <div class="col-half">
                     <label for="expense-type" class="bold-label">Type de dépense</label>
-                      <select required class="form-control blue-border" data-testid="expense-type">
+                      <select aria-label="type de depense" required class="form-control blue-border" data-testid="expense-type">
                         <option>Transports</option>
                         <option>Restaurants et bars</option>
                         <option>Hôtel et logement</option>
@@ -27,35 +27,36 @@ export default () => {
                   </div>
                   <div class="col-half">
                     <label for="expense-name" class="bold-label">Nom de la dépense</label>
-                    <input type="text" class="form-control blue-border" data-testid="expense-name" placeholder="Vol Paris Londres" />
+                    <input aria-label="nom de la depense" type="text" class="form-control blue-border" data-testid="expense-name" placeholder="Vol Paris Londres" />
                   </div>
                   <div class="col-half">
                     <label for="datepicker" class="bold-label">Date</label>
-                    <input required type="date" class="form-control blue-border" data-testid="datepicker" />
+                    <input aria-label="date" required type="date" class="form-control blue-border" data-testid="datepicker" />
                   </div>
                   <div class="col-half">
                     <label for="amount" class="bold-label">Montant TTC </label>
-                    <input required type="number" class="form-control blue-border input-icon input-icon-right" data-testid="amount" placeholder="348"/>
+                    <input aria-label="montant ttc" required type="number" class="form-control blue-border input-icon input-icon-right" data-testid="amount" placeholder="348"/>
                   </div>
                   <div class="col-half-row">
                     <div class="flex-col"> 
                       <label for="vat" class="bold-label">TVA</label>
-                      <input type="number" class="form-control blue-border" data-testid="vat" placeholder="70" />
+                      <input aria-label="tva" type="number" class="form-control blue-border" data-testid="vat" placeholder="70" />
                     </div>
                     <div class="flex-col">
                       <label for="pct" class="white-text">%</label>
-                      <input required type="number" class="form-control blue-border" data-testid="pct" placeholder="20" />
+                      <input aria-label="%" required type="number" class="form-control blue-border" data-testid="pct" placeholder="20" />
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="col-half">
                     <label for="commentary" class="bold-label">Commentaire</label>
-                    <textarea class="form-control blue-border" data-testid="commentary" rows="3"></textarea>
+                    <textarea aria-label="commentaire" class="form-control blue-border" data-testid="commentary" rows="3"></textarea>
                   </div>
                   <div class="col-half">
                     <label for="file" class="bold-label">Justificatif</label>
-                    <input required type="file" class="form-control blue-border" data-testid="file" />
+                    <input aria-label="justification" required type="file" class="form-control blue-border" data-testid="file" />
+                    <div><p id="error-msg" class="dp-none" data-testid="error" style="color: #e21313;">Veuillez changer le format de la photo.<br>Les formats pris en compte sont : JPG, JPEG, PNG</p></div>
                   </div>
                 </div>
             </div>
